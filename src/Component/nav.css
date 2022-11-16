@@ -206,11 +206,13 @@ img {
 .image {
   height: 100px;
   width: 100px;
+ 
 }
 
 .productImage .image img {
   height: 100%;
   width: 100%;
+  border-radius: 15px;
 }
 
 input{

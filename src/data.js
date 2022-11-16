@@ -1,16 +1,6 @@
-import "./App.css";
-import Nav from "./Component/Nav";
-import Card from "./Component/Card";
-import Items from "./Component/Items";
-import Cart from "./Component/Cart";
-import { Route, Switch } from "react-router-dom";
-import { useState } from "react";
 
 
-
-function App() {
-
-  const item = [
+const item = [
     {
       id: "1",
       image: "Project/Boot.png",
@@ -85,63 +75,5 @@ function App() {
       Qty:1,
     },
   ];
-  const [data, setData]= useState([]);
-  
-//   const clickedItem = cartItems.find((el) => el.id === product.id);
-//   if (clickedItem) {
-//     alert("Item  Already Added to Cart");
-//   } else {
-//     setCartItems([...cartItems, { ...product, qty: 1 }]);
-//   }
-// };
- 
-  const handleSumbit=(id)=>
-  {
-    {
-       const newData= item.find((element)=>
-        {
-            return (
-              element.id===id
-            )
 
-           
-        })
-       
-        window.alert('Item added to cart')
-       
-        setData([...data, {...newData, Qty: 1}])
-      
-     
-        
-    }
-   
-    
-}
-  
-  return (
-    <>
-     {console.log("data", data)}
-      <Nav image={"Project/logo (2)@2x.png"} img={"Project/cart.png"} />
-      
-
-      <Switch>
-        <div className="container">
-          <Route exact path="/cart">
-            <Cart data={data} />
-          </Route>
-
-          <Route exact path="/">
-            <Card card={"Project/card.png"} />
-          </Route>
-          <Route  exact path="/">
-            
-            <Items handleSumbit={handleSumbit} item={item} />
-          </Route>
-
-        </div>
-      </Switch>
-    </>
-  );
-}
-
-export default App;
+  export default item;

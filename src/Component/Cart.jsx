@@ -3,37 +3,46 @@ import "./nav.css";
 import {BsPlus} from "react-icons/bs"
 import {AiOutlineMinus} from "react-icons/ai"
 import { useState } from "react";
+import item from "../data";
+import { Link } from "react-router-dom";
 
 
-// const increment = (product) => {
-//   const clickedItem = cartItems.find((el) => el.id === product.id);
 
-//   if (clickedItem) {
-//     setCartItems(
-//       cartItems.map((el) =>
-//         el.id === product.id
-//           ? { ...clickedItem, qty: clickedItem.qty + 1 }
-//           : el
-//       )
-//     );
-//   } else {
-//     setCartItems([...cartItems, { ...product, qty: 1 }]);
-//   }
-// };
 export default function Cart({ data }) {
 
-  const [cart, setCart]=useState([data])
-//const clickItem= data.map((e))
-    const increment =(id)=>
-    {
-      cart(eid=>
-        eid.map((e)=> e.id===id ? {...eid, Qty:eid.Qty + 1} :eid
-        ))
-    }
+
+const [first, setfirst] = useState()
+
+const increment =(id)=>
+{
+  const updateQuantity= data.find((item) => item.id === id && item.Qty++ )
+  console.log(updateQuantity)
+ setfirst({...first, updateQuantity})
+}
+
+const decrement =(id)=>
+{
+const updateQuantity= data.find((item) => item.id === id && item.Qty-- )
+ console.log(updateQuantity)
+setfirst({...first, updateQuantity})
+}
+
+const TotalPrice = data.reduce(
+  (InitialPrice, selectedItem) =>
+    InitialPrice + selectedItem.qty * selectedItem.price,
+  0
+);
 
 
    return (
     <>
+    {data.length === 0 && (
+        <div id="cartBackground">
+          <div> Sorry !! No Items Added In this cart</div>
+          <Link id="BackLink" to="/">
+            <button id="btnBack">&laquo; Go to Shop</button>
+          </Link>
+        </div>)}
        <div className="cartConatiner">
           <div className="cartItem">
             <div className="heading">
@@ -58,30 +67,39 @@ export default function Cart({ data }) {
                </div>
               
                <div className="handle">
-               <AiOutlineMinus />
+               <button  onClick={()=>decrement(e.id)}>-</button>
               <div className="input">{e.Qty}</div>
                 <button onClick={()=>increment(e.id)}>+</button>
                </div>
 
                <div className="price">
-                <p>{e.price}</p>
+                <p>{e.price*e.Qty}</p>
                </div>
-               <hr />
 
+               <hr />
+               
+
+               
 
   
                </div>
                
+               
            
                 )
+                
 
-              })
+              }
+              )
            
               
 
             }
            
-        
+           <div className="total">
+                <p>{TotalPrice} </p>
+               </div>
+
          
       </div>
 
