@@ -10,7 +10,7 @@ export default function Nav({ image, img }) {
       <div className="nav">
          
         <div className="photo">
-          <img src={image} alt="" srcset="" />
+         <Link to="/"> <img src={image} alt="" srcset="" /></Link>
        </div>
         
         <div className="search">

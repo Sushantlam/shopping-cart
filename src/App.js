@@ -109,7 +109,7 @@ function App() {
        
         window.alert('Item added to cart')
        
-        setData([...data, {...newData, Qty: 1}])
+        setData([...data, {...newData}])
       
      
         
