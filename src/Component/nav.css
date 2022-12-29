@@ -12,7 +12,8 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(14, 146, 253);
-  position: relative;
+  
+  position: sticky;
 }
 
 .photo {
@@ -73,12 +74,13 @@ a:hover {
   position: absolute;
   top: 0px;
   right: 0;
-  background-color: rgb(55, 115, 165);
+  background-color: rgb(251, 252, 253);
   border-radius: 30px;
   height: 1.5rem;
-  width: 2rem;
+  width: 1.8rem;
   text-align: center;
   font-size: 1;
+  color: black;
 }
 
 .card {
@@ -112,9 +114,16 @@ img {
   width: 30%;
 }
 
-.item:hover {
-  cursor: pointer;
-}
+
+  .item:hover{
+    background-color: rgb(171, 168, 168);
+          cursor: pointer;
+          transition: 1s ease-in-out;
+         
+          transform: translateY(-0.5rem);
+          border: 1px solid black;
+  }
+
 
 .item {
   border-radius: 10%;
@@ -181,9 +190,11 @@ img {
 
 .cartConatiner {
   margin: 2rem 8rem;
-  height: 60vh;
-  width: 60vw;
-  background-color: aquamarine;
+  
+  width: 40vw;
+  background-color:  rgb(218, 223, 227);;
+ border-radius: 20px;
+ min-width: 50vw;
 }
 
 .cartItem {
@@ -197,12 +208,26 @@ img {
 
 .productImage {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  background-color: rgb(255, 204, 127);
+  padding: 10px;
+ 
+}
+
+.handle
+{
+  display: flex;
   padding: 10px;
 }
 
+.handleButton{
+  margin:0 5px;
+  height: 2rem;
+  border-radius: 10px;
+  border: none;
+  width: 1rem;
+  background-color:  rgb(218, 223, 227);
+}
 .image {
   height: 100px;
   width: 100px;
@@ -218,4 +243,56 @@ img {
 input{
   width: 20px;
   margin: 0 10px;
+}
+
+#cartBackground
+{
+  background-color:  rgb(14, 146, 253);
+ 
+    height: 10rem;
+    width: 50%;
+    top: 25%;
+    right: 25%;
+    position: absolute;
+    border-radius: 2rem;
+}
+
+#cartBackground .sorry 
+{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+#btnBack{
+  top: 25%;
+  left: 42%;
+    position: absolute;
+  height: 2rem;
+  border-radius: 10px;
+  border: none;
+  width: 5rem;
+  background-color:  rgb(218, 223, 227);
+
+}
+
+#btnBack:hover{
+  background-color: transparent;
+  cursor: pointer;
+  transition: 1s ease-out;
+}
+
+.total{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.totalPrice{
+  background-color: aqua;
+  top: 0;
+  height: 200px;
+ 
 }

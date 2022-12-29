@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../Redux/cartSlice";
 
-export default function Items({handleSumbit, item}) {
+
+export default function Items() {
  
+  const data= useSelector((state)=> state.allData.productItem)
+  console.log(data)
+  const dispatch=useDispatch();
+  
 
   return (
     <>
@@ -18,14 +25,15 @@ export default function Items({handleSumbit, item}) {
           paddingRight: "80px",
         }}
       >
-        {item.map((element) => {
+        {data.map((element) => {
           return (
-            <div className="item">
+            <div className="item" key={element.id}>
               <div className="itemCard">
                 <img src={element.image} alt="" />
               </div>
               <div className="itemBtn">
-              <button className="btn"onClick={()=>handleSumbit(element.id)}> {element.btn}</button>
+              <button className="btn" onClick={()=> dispatch(addToCart(element))}> {element.btn}</button>
+             
               </div> 
               <h5 className="paragraph">{element.para} </h5>
               <h5 className="price">Rs {element.price}</h5>

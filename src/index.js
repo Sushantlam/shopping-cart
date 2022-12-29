@@ -7,11 +7,17 @@ import {
   
     BrowserRouter as Router
    } from "react-router-dom";
+import { Provider } from 'react-redux';
+import {store} from "./Store/store"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
     <Router>
+        <React.Fragment>
+       <Provider store={store}>
     <App />
+    </Provider> 
+    </React.Fragment>
     </Router>
 );
 
