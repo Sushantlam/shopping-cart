@@ -81,9 +81,6 @@ export default function Cart() {
                     <button className="handleButton"  ><FaPlus onClick={() => dispatch(increaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
                   </div>
 
-                  <div className="price">
-                    <p>{e.price}</p>
-                  </div>
 
                   <div className="total">
                     <FaTrash className="img"  onClick={() => dispatch(removeItem(e.id))} style={{ color: "gray" }} size={14} />
