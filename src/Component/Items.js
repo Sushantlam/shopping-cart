@@ -8,6 +8,8 @@ export default function Items() {
   const data= useSelector((state)=> state.allData.productItem)
   console.log(data)
   const dispatch=useDispatch();
+
+  
   
 
   return (

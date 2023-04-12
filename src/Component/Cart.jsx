@@ -76,7 +76,7 @@ export default function Cart() {
                   </div>
 
                   <div className="handle">
-                    <button className="handleButton" ><FaMinus onClick={() => dispatch(decreaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
+                    <button className="handleButton"  ><FaMinus  onClick={() => dispatch(decreaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
                     <div className="input">{e.Qty}</div>
                     <button className="handleButton"  ><FaPlus onClick={() => dispatch(increaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
                   </div>
@@ -86,7 +86,7 @@ export default function Cart() {
                   </div>
 
                   <div className="total">
-                    <FaTrash className="img" onClick={() => dispatch(removeItem(e.id))} style={{ color: "gray" }} size={14} />
+                    <FaTrash className="img"  onClick={() => dispatch(removeItem(e.id))} style={{ color: "gray" }} size={14} />
                   </div>
 </div>
                 
