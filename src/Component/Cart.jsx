@@ -37,7 +37,7 @@ export default function Cart() {
 
   const { cart, totalProduct, totalPriceBeforeTax } = useSelector((state) => state.allData)
 
-  
+
 
   const dispatch = useDispatch();
 
@@ -48,7 +48,7 @@ export default function Cart() {
   return (
     <>
 
-    {console.log(totalProduct)}
+      {console.log(totalProduct)}
       {cart.length === 0 ? (
         <div id="cartBackground">
           <div className="sorry"> Sorry !! No Items Added In this cart</div>
@@ -59,62 +59,66 @@ export default function Cart() {
 
         <div className="total">
           <div className="container">
-        <div className="cartConatiner">
-          <strong >{cart.length} Items on Cart</strong>
-          <hr />
+            <div className="cartConatiner">
+              <strong className="cartLength">{cart.length} Items on Cart</strong>
+              <hr />
 
-          {
-            cart.map((e) => {
-              return (
-                
-                
-                <div className="productImage" key={e.id}>
-                  <div className="image">
-                    <img src={e.image} alt="photo" />
+              {
+                cart.map((e) => {
+                  console.log(e);
+                  return (
 
 
-                  </div>
-
-                  <div className="handle">
-                    <button className="handleButton"  ><FaMinus  onClick={() => dispatch(decreaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
-                    <div className="input">{e.Qty}</div>
-                    <button className="handleButton"  ><FaPlus onClick={() => dispatch(increaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
-                  </div>
+                    <div className="productImage" key={e.id}>
+                      <div className="image">
+                        <img src={e.image} alt="photo" />
 
 
-                  <div className="total">
-                    <FaTrash className="img"  onClick={() => dispatch(removeItem(e.id))} style={{ color: "gray" }} size={14} />
-                  </div>
-</div>
-                
- )
-            })}
+                      </div>
 
-          </div>
-          </div>
-        <div className="totalPrice">
-            <div className="sumarry">
-            <div className="sumarryList">
-          <section>
-            Sumarry
-          </section>
+                      <div className="handle">
+                        <button className="handleButton"  ><FaMinus onClick={() => dispatch(decreaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
+                        <div className="input">{e.Qty}</div>
+                        <button className="handleButton"  ><FaPlus onClick={() => dispatch(increaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
+                      </div>
+                      <div className="handle">
+                            <div className="input">{e.price}</div>
+                           </div>
+
+
+                      <div className="total">
+                        <FaTrash className="img" onClick={() => dispatch(removeItem(e.id))} style={{ color: "gray" }} size={14} />
+                      </div>
+
+                    </div>
+
+                  )
+
+                })
+              }
+
+            <div className="totalPrice"> 
+            <p className="totalQty"><span>Quantity:</span> {totalProduct}</p> 
+            <p className="totalQty"><span>Price:</span>{totalPriceBeforeTax}</p> </div> 
+          
+
+
+
+            </div>
+
           </div>
          
-          <br />
-          <div className="priceList">
-          <p>{totalProduct}</p>
-          <p>{totalPriceBeforeTax}</p>
-          </div>
+
+            
+           
         
-         </div>
-          </div>
         </div>
-        
+
 
 
 
       }
-    
+
 
 
     </>
