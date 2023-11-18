@@ -5,6 +5,7 @@ import Items from "./Component/Items";
 import Cart from "./Component/Cart";
 import { Route, Switch } from "react-router-dom";
 import { useState } from "react";
+import Footer from "./Component/Footer";
 
 
 
@@ -137,6 +138,7 @@ function App() {
             
             <Items handleSumbit={handleSumbit} item={item} />
           </Route>
+         
 
         </div>
       </Switch>

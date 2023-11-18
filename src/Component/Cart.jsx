@@ -7,7 +7,7 @@ import item from "../data";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa"
-import { decreaseQuantity, getCartTotal, increaseQuantity, removeItem } from "../Redux/cartSlice";
+import { checkout, decreaseQuantity, getCartTotal, increaseQuantity, removeItem } from "../Redux/cartSlice";
 
 
 
@@ -57,9 +57,13 @@ export default function Cart() {
           </Link>
         </div>) :
 
-        <div className="total">
-          <div className="container">
-            <div className="cartConatiner">
+       
+<div className="totalContent">
+  
+  <div className="cartFelx">
+
+ 
+             <div className="cartConatiner">
               <strong className="cartLength">{cart.length} Items on Cart</strong>
               <hr />
 
@@ -82,7 +86,7 @@ export default function Cart() {
                         <button className="handleButton"  ><FaPlus onClick={() => dispatch(increaseQuantity(e.id))} className="img" style={{ color: "gray" }} size={10} /></button>
                       </div>
                       <div className="handle">
-                            <div className="input">{e.price}</div>
+                            <div className="input">{e.price * e.Qty}</div>
                            </div>
 
 
@@ -97,22 +101,31 @@ export default function Cart() {
                 })
               }
 
-            <div className="totalPrice"> 
-            <p className="totalQty"><span>Quantity:</span> {totalProduct}</p> 
-            <p className="totalQty"><span>Price:</span>{totalPriceBeforeTax}</p> </div> 
-          
+           
 
 
-
+            </div> 
+            <div className="cartRight">
+              <div className="priceSummary">
+                <div className="priceFlex" >
+                <h3>No. of Product</h3>
+                <h5>{totalProduct}</h5>
+                
+                </div>
+                <div className="priceFlex" >
+                <h3>No. of Item</h3>
+                <h5>{totalPriceBeforeTax}</h5>
+               
+                </div>
+                <button className="checkOut" onClick={()=> dispatch(checkout())} >Check Out</button>
+                  
+              </div>
             </div>
-
-          </div>
+            </div> 
+</div>
          
 
-            
-           
         
-        </div>
 
 
 

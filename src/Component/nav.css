@@ -189,12 +189,12 @@ img {
 /*cart ko css*/
 
 .cartConatiner {
-  margin: 2rem 8rem;
+  /* margin: 2rem 8rem; */
   
-  width: 40vw;
+  width: 50%;
   background-color:  rgb(218, 223, 227);;
  border-radius: 20px;
- min-width: 50vw;
+ /* min-width: 50vw; */
 }
 
 .cartItem {
@@ -283,10 +283,19 @@ input{
   transition: 1s ease-out;
 }
 
-.total{
+.totalContent {
+ min-height: 80vh;
+ /* background-color: aqua; */
+}
+
+.cartFelx{
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  max-width: 1440px;
+  margin: auto;
+  padding-top: 100px;
+  /* align-items: center; */
+  justify-content: space-between;
+  /* background-color: green; */
   gap: 10px;
 }
 
@@ -308,7 +317,52 @@ input{
   padding: 20px;
 }
 
+.checkOut{
+  padding: 10px 5px;
+  background-color: rgb(14, 146, 253);
+  border-radius: 10px;
+}
+
+.priceSummary{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  min-width: 30%;
+  padding: 20px;
+  min-height: 80%;
+  border: 0.5px solid gray;
+  border-radius: 10px;
+  min-height: 250px;
+  background-color: white;
+}
+
+.priceFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
 .totalQty span{
   font-size: 18px;
   font-weight: bold;
+}
+.cartRight{
+  width: 50%;
+  padding: 20px;
+  /* height: auto; */
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  
+}
+
+.footer 
+{
+    background-color: rgb(98, 162, 199);
+    display: flex;
+}
+
+.block
+{
+    margin: 5px 75px;
 }

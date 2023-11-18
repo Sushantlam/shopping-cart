@@ -73,10 +73,14 @@ const cartSlice= createSlice({
             state.cart= state.cart.filter((e)=> 
                 e.id!==action.payload)
         },
+        checkout:(state)=>{
+            
+            state.cart=[]
+        }
        
     }
 })
 
-export const {addToCart, decreaseQuantity,increaseQuantity, removeItem, getCartTotal}= cartSlice.actions
+export const {addToCart, checkout, decreaseQuantity,increaseQuantity, removeItem, getCartTotal}= cartSlice.actions
 
 export default cartSlice.reducer
